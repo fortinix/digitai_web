@@ -3,8 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "install:all": "npm install && cd webapp && npm install && cd ../new-frontend && npm install && cd ..",
+    "install:webapp": "cd webapp && npm install",
+    "install:frontend": "cd new-frontend && npm install",
+    "dev:backend": "cd webapp && npm start",
+    "dev:frontend": "cd new-frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "build": "cd new-frontend && npm install && npm run build",
-    "dev": "cd webapp && npm run dev",
     "start": "cd webapp && node server.js"
   }
 }
